@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:Calculatrice.ViewModel"
         xmlns:local="clr-namespace:Calculatrice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Calculatrice" Height="350" Width="525">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
