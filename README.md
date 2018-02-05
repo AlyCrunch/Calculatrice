@@ -67,6 +67,7 @@ Cette fois, tu réfléchis à toutes les actions que tu vas devoir faire et voir
 Dans le ViewModel une command se décompose en 3 "blocs" differents. Exemple avec l'action **valider**.
 
 1. La variable bindable
+
 Une variable RelayCommand (la classe ajoutée au début) qu'on va lier dans la vue
 ``` cs
 private RelayCommand _equalCommand;
@@ -86,6 +87,7 @@ public void HittingEqual()
 ```
 
 3. Le lien entre la variable bindable et la méthode
+
 Cette fois c'est une ligne qui se trouve dans la contructeur de la classe
 ``` cs
 public MainViewModel()
@@ -98,10 +100,12 @@ public MainViewModel()
 ## 3. Création de la vue ##
 
 J'ai ajouté un nouveau document de type "Fenêtre" ou "Window" au dossier **View**
+
 Ton document est en deux parties : **TaVue.xaml** et **TaVue.xaml.cs**.
 tous les elements purements graphiques se trouve dans le .xaml et le .cs sert à ajouter du code facilement, il faut essayer de **ne jamais y ajouter de code**, tout doit se faire dans ton ViewModel associé.
 
 1. Lien avec le ViewModel
+
 Une view fonctionne un peu comme une classe basique, pour utiliser la classe ViewModel tu dois lui ajouter un lien vers elle.
 ``` xaml
 <Window xmlns:vm="clr-namespace:Calculatrice.ViewModel">
