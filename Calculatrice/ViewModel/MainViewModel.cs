@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculatrice.ViewModel
 {
@@ -32,7 +30,7 @@ namespace Calculatrice.ViewModel
         
         public char CurrentOperation { get; set; }
 
-        public static List<Tuple<int, char>> HistoricList { get; set; }
+        public static List<Tuple<double, char>> HistoricList { get; set; }
 
         #region Binding Commands
         private RelayCommand _numberCommand;
@@ -77,7 +75,7 @@ namespace Calculatrice.ViewModel
         {
             Current = string.Empty;
             Historic = string.Empty;
-            HistoricList = new List<Tuple<int, char>>();
+            HistoricList = new List<Tuple<double, char>>();
             CurrentOperation = '+';
         }
 
@@ -91,7 +89,7 @@ namespace Calculatrice.ViewModel
 
         public string UpdateResult()
         {
-            int r = 0;
+            double r = 0;
             try
             {
                 foreach (var item in HistoricList)
@@ -123,7 +121,7 @@ namespace Calculatrice.ViewModel
             if (string.IsNullOrEmpty(Current))
                 return;
 
-            HistoricList.Add(new Tuple<int, char>(int.Parse(Current),CurrentOperation));
+            HistoricList.Add(new Tuple<double, char>(double.Parse(Current),CurrentOperation));
 
             CurrentOperation = operation.First();
             Historic = UpdateHistoric();
@@ -133,7 +131,7 @@ namespace Calculatrice.ViewModel
 
         public void HittingEqual()
         {
-            HistoricList.Add(new Tuple<int, char>(int.Parse(Current), CurrentOperation));
+            HistoricList.Add(new Tuple<double, char>(double.Parse(Current), CurrentOperation));
             Result = UpdateResult();
 
             Reset();
